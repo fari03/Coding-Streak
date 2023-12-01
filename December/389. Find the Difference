@@ -1,0 +1,34 @@
+# StringDifferenceFinder.py
+
+class Solution:
+    def findTheDifference(self, s, t):
+        result = 0
+    
+        # XOR all characters in string s
+        for char in s:
+            result ^= ord(char)
+    
+        # XOR all characters in string t
+        for char in t:
+            result ^= ord(char)
+    
+        # Convert the final result back to a character
+        return chr(result)
+
+# Example Usage:
+solution_instance = Solution()
+s1 = "abcd"
+t1 = "abcde"
+print(solution_instance.findTheDifference(s1, t1))  # Output: "e"
+
+# Description
+"""
+        XOR-based String Difference Finder
+
+        Algorithm:
+        1. Initialize the result to 0.
+        2. Iterate through each character in string s and XOR its ASCII value with the result.
+        3. Iterate through each character in string t and XOR its ASCII value with the result.
+        4. The XOR of both strings cancels out common characters, leaving only the extra character.
+        5. Convert the final XOR result back to a character using chr.
+        6. Return the added letter.
