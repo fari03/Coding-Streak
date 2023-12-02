@@ -1,0 +1,17 @@
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        n = len(digits)
+
+        # Traverse the digits array from right to left
+        for i in range(n - 1, -1, -1):
+            # Increment the current digit
+            digits[i] += 1
+
+            # Check for carry
+            if digits[i] < 10:
+                return digits
+            else:
+                digits[i] = 0  # Set the current digit to 0 and continue to the next
+
+        # If there is a carry after the loop, add a new digit at the beginning
+        return [1] + digits
