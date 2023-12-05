@@ -1,0 +1,16 @@
+public class Solution 
+{
+    public static int timeTakenToMail(String keyboard, String s)
+    {
+        // Write your code here.
+        int time=0;
+        int currentIndex=0;
+        for(char c: s.toCharArray()){
+            int targetIndex=keyboard.indexOf(c);
+            time+=Math.abs(targetIndex-currentIndex);
+            currentIndex=targetIndex;
+        }
+        return time;
+    }
+    
+}
