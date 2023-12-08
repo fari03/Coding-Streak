@@ -1,0 +1,16 @@
+class Solution:
+    def tree2str(self, root: Optional[TreeNode]) -> str:
+        if not root:
+            return ""
+
+        result = str(root.val)
+
+        left = self.tree2str(root.left)
+        right = self.tree2str(root.right)
+
+        if left or right:
+            result += f"({left})"
+        if right:
+            result += f"({right})"
+
+        return result
