@@ -1,0 +1,31 @@
+def searchInTheArray(arr, queries, n, q):
+    arr.sort()  # Sort the array to efficiently find the sum of elements less than or equal to a query
+
+    prefix_sum = [0]  # Initialize prefix sum array with 0 as the first element
+    for i in range(n):
+        prefix_sum.append(prefix_sum[-1] + arr[i])  # Calculate prefix sum
+
+    result = []
+
+    for i in range(q):
+        # Binary search to find the position of the query value in the sorted array
+        position = binary_search(arr, queries[i])
+
+        # Add the sum of elements less than or equal to the query value to the result
+        result.append(prefix_sum[position])
+
+    return result
+
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+
+        if arr[mid] <= target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return left
+
