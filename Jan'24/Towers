@@ -1,0 +1,55 @@
+import java.util.* ;
+
+import java.io.*; 
+
+public class Solution {
+
+    public static int minTowers(ArrayList<Integer> arr, int n) {
+
+        // Write your code here.
+
+        ArrayList<Integer> list=new ArrayList<>();
+
+        for(int cube:arr)
+
+        {
+
+            boolean place=false;
+
+            for(int i=0;i<list.size();i++)
+
+            {
+
+                if(cube<list.get(i))
+
+                {
+
+                    list.set(i,cube);
+
+                    place=true;
+
+                    break;
+
+                }
+
+            }
+
+            if(!place)
+
+            {
+
+                list.add(cube);
+
+            }
+
+            
+
+        }
+
+        return list.size();
+
+    }
+
+}
+
+ 
