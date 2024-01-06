@@ -1,0 +1,24 @@
+import java.util.Arrays;
+
+public class Solution {
+    public static int maximumEfficiency(int[] outcome, int n) {
+        // Sort the array in increasing order
+        Arrays.sort(outcome);
+
+        int sum = 0;
+        int efficiency = 0;
+
+        // Iterate from the end of the array to the beginning
+        for (int i = n - 1; i >= 0; i--) {
+            sum += outcome[i];
+
+            if (sum > 0) {
+                efficiency += sum;
+            } else {
+                break; // Break the loop if the sum becomes non-positive
+            }
+        }
+
+        return efficiency;
+    }
+}
